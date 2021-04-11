@@ -1,0 +1,24 @@
+#main {
+  display: flex;
+  margin-top: 1rem;
+}
+
+app-menu {
+  color:forestgreen;
+  width: 35%;
+  height: auto;
+  margin: 0 auto;
+
+}
+
+main {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+
+
+
+
+

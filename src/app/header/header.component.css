@@ -1,0 +1,55 @@
+@font-face {
+  src: url(../font/Comfortaa-VariableFont_wght.ttf);
+  font-family: Comfortaa;
+}
+
+* {
+  font-family: Comfortaa im !important;
+}
+
+img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+h3 {
+  padding: 0 1rem; color: darkcyan
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 5rem;
+}
+
+li {
+  margin: 0 1rem;
+  padding: 3px;
+}
+
+button {
+  /* border-radius: 20%; */
+}
+
+a {
+  color:black;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  width: 100px;
+}
+
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+app-search{
+  margin-left: auto;
+}
+
+mat-toolbar {
+  background-color: rgb(201, 201, 243);
+}

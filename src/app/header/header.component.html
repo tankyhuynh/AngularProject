@@ -1,0 +1,26 @@
+<mat-toolbar color="warm">
+  <!-- <span> <a mat-button routerLink="/">My List Post</a> </span> -->
+  <img [src]="imgPath" alt="">
+  <h3> {{ userName }} </h3>
+  <app-search></app-search>
+  <span class="spacer"></span>
+  <ul>
+    <!-- <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/create" routerLinkActive="mat-accent">Create New Post</a> </li> -->
+    <li *ngIf="!isUserAuthenticated"> <a mat-button routerLink="/login" routerLinkActive="mat-accent">Đăng nhập</a> </li>
+    <li *ngIf="!isUserAuthenticated"> <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Đăng ký</a> </li>
+    <!-- <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/menu" routerLinkActive="mat-accent">Menu</a> </li> -->
+
+    <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/message" routerLinkActive="mat-accent">Tin nhắn</a> </li>
+    <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/contact" routerLinkActive="mat-accent">Danh bạ</a> </li>
+    <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/add-friend" routerLinkActive="mat-accent">Thêm bạn</a> </li>
+    <li *ngIf="isUserAuthenticated"> <a mat-button routerLink="/personal-information" routerLinkActive="mat-accent">Chỉnh sửa</a> </li>
+
+    <li *ngIf="isUserAuthenticated"> <a mat-button (click)="onLogout()">Đăng xuất</a> </li>
+
+  </ul>
+</mat-toolbar>
+
+
+
+
+

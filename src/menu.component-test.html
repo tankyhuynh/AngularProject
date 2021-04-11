@@ -1,0 +1,34 @@
+
+  <mat-toolbar color="warm">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <!-- <h1>SimpleCRM</h1> -->
+    <span class="menu-spacer"></span>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="'/accounts'"> Tin nhắn </a>
+      <a mat-list-item [routerLink]="'/create-account'"> Danh bạ </a>
+      <a mat-list-item [routerLink]="'/contacts'"> Thêm bạn </a>
+      <a mat-list-item [routerLink]="'/create-contact'"> Chỉnh sửa </a>
+      <a mat-list-item [routerLink]="'/create-contact'"> Đăng xuất </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

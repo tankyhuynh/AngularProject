@@ -1,0 +1,36 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+  <mat-card>
+
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name="title"
+      formControlName="title">
+      <mat-error *ngIf="form.get('title').invalid">Please input your title</mat-error>
+    </mat-form-field>
+
+    <div>
+      <button type="button" mat-button (click)="filePicker.click()">Pick Image</button>
+      <input type="file" #filePicker (change)="onFilePicked($event)">
+    </div>
+
+    <div class="imagePreview" *ngIf="imageURL !== '' && imageURL && form.get('image').valid">
+      <img [src]="imageURL" [alt]="form.value.title">
+    </div>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        formControlName="content"></textarea>
+        <mat-error *ngIf="form.get('content').invalid">Content must be greater than 3 digits</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit" >Add</button>
+  </mat-card>
+</form>
+
