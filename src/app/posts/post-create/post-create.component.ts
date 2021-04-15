@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators} from '@angular/forms'
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AutheService } from 'src/app/auth/auth.service';
 
 
 import { Post } from '../post.model';
@@ -13,7 +15,7 @@ import { mimeType } from './mime-type.validator';
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css']
 })
-export class PostCreateComponent implements OnInit {
+export class PostCreateComponent implements OnInit, OnDestroy {
 
   enteredTitle = '';
   enteredContent = '';
@@ -25,10 +27,19 @@ export class PostCreateComponent implements OnInit {
   form: FormGroup;
   imageURL: string;
 
+  private authStatusSub: Subscription;
 
-  constructor(public postService: PostService, public route: ActivatedRoute){};
+  constructor(
+    public postService: PostService,
+    public route: ActivatedRoute,
+    public authService: AutheService){};
 
   ngOnInit() {
+    this.authStatusSub = this.authService.getAuthStatusListener()
+          .subscribe(authStatus => {
+            this.isLoading = false;
+          });
+
     this.form = new FormGroup({
       'title': new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]}),
@@ -90,13 +101,22 @@ export class PostCreateComponent implements OnInit {
 
     this.isLoading = true;
     if ( this.mode === 'create' ) {
-      this.postService.addPost(this.form.value.title, this.form.value.content, this.form.value.image);
+      this.postService.addPost(
+                        this.form.value.title,
+                        this.form.value.content,
+                        this.form.value.image);
     }
     else {
-      this.postService.updatePost(this.postId, this.form.value.title, this.form.value.content, null,  this.form.value.image);
+      this.postService.updatePost(
+                        this.postId,
+                        this.form.value.title,
+                        this.form.value.content,
+                        this.form.value.image);
     }
 
     this.form.reset();
-
   }
+
+  ngOnDestroy(){}
+
 }

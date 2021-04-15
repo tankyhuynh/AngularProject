@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core"
+import { BehaviorSubject } from "rxjs";
 import { Subscription } from "rxjs";
 import { AutheService } from "../auth/auth.service";
 
@@ -10,7 +11,8 @@ import { AutheService } from "../auth/auth.service";
 export class HeaderComponent implements OnInit, OnDestroy {
   isUserAuthenticated = false;
   private authListenerSub: Subscription;
-  userName = null;
+
+  username: string;
 
   imgPath = "http://localhost:3000/images/img.jpg";
 
@@ -18,10 +20,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.isUserAuthenticated = this.authService.getIsAuthenticated();
-    this.userName = localStorage.getItem('email');
+
     this.authListenerSub = this.authService
                   .getAuthStatusListener()
                   .subscribe(isAuth => {
+                    this.username = this.authService.getUsername();
                     this.isUserAuthenticated = isAuth;
                   });
   }

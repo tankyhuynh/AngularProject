@@ -13,22 +13,6 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from  './posts/post-list/post-list.component';
 
-import { MatInputModule} from "@angular/material/input";
-import {  MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
-
-import { MatListModule } from '@angular/material/list';
-
-import { HeroesComponent } from './heroes/heroes.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
@@ -36,45 +20,41 @@ import { MessageComponent } from './message/message.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddFriendComponent } from './add-friend/add-friend.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { ErrInterceptor } from './err-interceptor';
+import { ErrorComponent } from './error/error.component';
+
+import { AngularMaterialModule } from './angular-material.module';
+import { PostModule } from './posts/post.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent,
     HeaderComponent,
-    PostListComponent,
-    HeroesComponent,
-    LoginComponent,
-    LoginComponent,
-    SignupComponent,
     MenuComponent,
     SearchComponent,
     MessageComponent,
     ContactComponent,
     AddFriendComponent,
-    PersonalInformationComponent
+    PersonalInformationComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularMaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatExpansionModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    PostModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrInterceptor, multi: true}
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }

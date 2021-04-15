@@ -15,7 +15,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   private postSub: Subscription;
 
   totalPosts = 100;
-  postPerPage = 2;
+  postPerPage = 5;
   pageSizeOptions = [1,2,5,10];
   currentPage = 1;
 
@@ -61,6 +61,8 @@ export class PostListComponent implements OnInit, OnDestroy {
       this.isLoading = true;
       this.postService.deletePost(postId).subscribe( () => {
         this.postService.getPosts(this.postPerPage, this.currentPage);
+      }, err => {
+        this.isLoading = false;
       });
     }
 

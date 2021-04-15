@@ -14,7 +14,9 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://tanky:xRUyMI2PE5tsmSJX@tankydbs.3zvgh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://tanky:"
+                  + process.env.MONGO_ATLAT_PASSWORD
+                  +"@tankydbs.3zvgh.mongodb.net/myFirstDatabase?retryWrites=true")
         .then( () => {
           console.log("Connected to MongoDB server");
         })
@@ -24,7 +26,8 @@ mongoose.connect("mongodb+srv://tanky:xRUyMI2PE5tsmSJX@tankydbs.3zvgh.mongodb.ne
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use("/images", express.static(path.join("backend/images")));
+app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/", express.static(path.join(__dirname, "images")));
 
 app.use( (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -39,5 +42,8 @@ app.use( (req, res, next) => {
 
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "angular", "index.html"));
+});
 
 module.exports = app;
