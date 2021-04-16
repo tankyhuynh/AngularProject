@@ -1,6 +1,0 @@
-{
-  "env": {
-    "MONGO_ATLAT_PASSWORD": "xRUyMI2PE5tsmSJX",
-    "JWT_KEY": "my_secret_key"
-  }
-}
