@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AutheService } from './auth/auth.service';
 // import { Post } from './posts/post.model'
 
@@ -9,10 +10,21 @@ import { AutheService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authService: AutheService ){}
+  isUserAuthenticated = false;
+  private authListenerSub: Subscription;
+
+  constructor(private authService: AutheService){};
 
   ngOnInit(){
     this.authService.autoAuthUser();
+
+    this.isUserAuthenticated = this.authService.getIsAuthenticated();
+
+    this.authListenerSub = this.authService
+                  .getAuthStatusListener()
+                  .subscribe(isAuth => {
+                    this.isUserAuthenticated = isAuth;
+                  });
   }
 
 }

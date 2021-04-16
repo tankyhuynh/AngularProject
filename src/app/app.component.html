@@ -1,7 +1,7 @@
 
 <app-header></app-header>
 <div id="main">
-  <app-menu></app-menu>
+  <app-menu *ngIf="isUserAuthenticated" [ngClass]="{'center_sceen': !isUserAuthenticated}"></app-menu>
   <main>
     <router-outlet></router-outlet>
   </main>

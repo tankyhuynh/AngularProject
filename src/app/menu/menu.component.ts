@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AutheService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,9 +13,21 @@ export class MenuComponent implements OnInit {
 
   items = 4;
 
-  constructor() { }
+  isUserAuthenticated = false;
+  private authListenerSub: Subscription;
+
+  constructor(private authService: AutheService){};
+
 
   ngOnInit(): void {
+    this.isUserAuthenticated = this.authService.getIsAuthenticated();
+
+    this.authListenerSub = this.authService
+                  .getAuthStatusListener()
+                  .subscribe(isAuth => {
+                    this.isUserAuthenticated = isAuth;
+                  });
   }
+
 
 }
