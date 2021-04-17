@@ -5,6 +5,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ContactComponent } from './contact/contact.component';
+import { ListAddFriendsComponent } from './list-add-friends/list-add-friends.component';
+import { ListFriendsComponent } from './list-friends/list-friends.component';
+import { ListGroupsComponent } from './list-groups/list-groups.component';
 import { MenuComponent } from './menu/menu.component';
 import { MessageComponent } from './message/message.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
@@ -20,6 +23,10 @@ const routes: Routes = [
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: 'menu', component: MenuComponent},
   {path: 'message', component: MessageComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'contact/list-add-friends', component: ListAddFriendsComponent},
+  {path: 'contact/list-friends', component: ListFriendsComponent},
+  {path: 'contact/list-groups', component: ListGroupsComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'add-friend', component: AddFriendComponent},
   {path: 'personal-information', component: PersonalInformationComponent},

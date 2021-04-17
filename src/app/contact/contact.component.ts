@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  
+  imgPath = "http://localhost:3000/images/img.jpg";
 
   constructor() { }
 

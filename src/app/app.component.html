@@ -1,10 +1,25 @@
-
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div id="main">
-  <app-menu *ngIf="isUserAuthenticated" [ngClass]="{'center_sceen': !isUserAuthenticated}"></app-menu>
+  <app-menu
+    *ngIf="isUserAuthenticated"
+    [ngClass]="{ center_sceen: !isUserAuthenticated }"
+  ></app-menu>
   <main>
     <router-outlet></router-outlet>
   </main>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <app-header style="width: 100%"></app-header>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4 menu" *ngIf="isUserAuthenticated">
+      <!-- <app-menu></app-menu> -->
+      <app-menu-contact></app-menu-contact>
+    </div>
+    <div class="col-8 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-
-

@@ -25,6 +25,10 @@ import { ErrorComponent } from './error/error.component';
 
 import { AngularMaterialModule } from './angular-material.module';
 import { PostModule } from './posts/post.module';
+import { MenuContactComponent } from './menu-contact/menu-contact.component';
+import { ListAddFriendsComponent } from './list-add-friends/list-add-friends.component';
+import { ListFriendsComponent } from './list-friends/list-friends.component';
+import { ListGroupsComponent } from './list-groups/list-groups.component';
 
 
 
@@ -38,7 +42,11 @@ import { PostModule } from './posts/post.module';
     ContactComponent,
     AddFriendComponent,
     PersonalInformationComponent,
-    ErrorComponent
+    ErrorComponent,
+    MenuContactComponent,
+    ListAddFriendsComponent,
+    ListFriendsComponent,
+    ListGroupsComponent
   ],
   imports: [
     BrowserModule,

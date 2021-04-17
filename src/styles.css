@@ -1,4 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+/* Style chung */
+@font-face {
+  src: url(src/app/font/Comfortaa-VariableFont_wght.ttf);
+  font-family: Comfortaa;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --color-1: #d0d2fd;
+  /* màu nền */
+  --color-4: #b2b9c5;
+  /*màu nền tối */
+  --color-2: white;
+  --color-3: black;
+}
+
+* {
+  font-family: Comfortaa;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* hr {
+      border-top: 2px solid var(--color-3) !important;
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+    } */
+
+input[type="text"]:focus,
+input[type="submit"],
+input[type="password"]:focus,
+textarea:focus,
+button:focus,
+span:focus {
+  outline: none;
+}

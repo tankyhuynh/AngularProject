@@ -1,34 +1,43 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
-  <mat-card>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-8 form-log-res">
+      <form
+        (submit)="onLogin(loginForm)"
+        #loginForm="ngForm"
+        *ngIf="!isLoading"
+      >
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            matInput
+            type="text"
+            name="email"
+            ngModel
+            #emailInput="ngModel"
+            required
+            email
+            placeholder="Số điện thoại"
+          />
+        </div>
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            matInput
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            required
+            placeholder="Mật khẩu"
+          />
+        </div>
 
-    <mat-form-field>
-      <input matInput
-        type="email"
-        name="email"
-        ngModel
-        #emailInput="ngModel"
-        required email
-        placeholder="Enter your email">
-      <mat-error *ngIf="emailInput.invalid">Please input your Email address</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input
-        matInput
-        type="password"
-        name="password"
-        ngModel
-        #passwordInput="ngModel"
-        required
-        placeholder="Enter your password"/>
-    <mat-error *ngIf="passwordInput.invalid">Content must be greater than 3 digits</mat-error>
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="accent"
-      type="submit" > Login </button>
-  </mat-card>
-</form>
-
+        <div class="row justify-content-end">
+          <button type="submit" class="form-submit">Đăng nhập</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

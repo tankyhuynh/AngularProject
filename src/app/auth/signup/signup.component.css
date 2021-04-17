@@ -1,10 +1,68 @@
-mat-form-field
+/* mat-form-field
  {
   width: 100%;
 }
+ */
 
 mat-spinner {
   margin: auto;
 }
 
+.form-log-res {
+  padding: 2rem;
+  top: 3rem;
+  text-align: center;
+  background-color: var(--color-2);
+  border: 1px solid var(--color-1);
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px -1px var(--color-1);
+}
 
+.form-title {
+  box-sizing: border-box !important;
+  display: inline-block;
+  margin: 1rem;
+  width: 6rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 750ms;
+  border-bottom: 1px solid transparent;
+}
+
+.form-title:hover,
+.form-title.active {
+  border-bottom: 1px solid var(--color-3);
+  transition: all 750ms;
+}
+
+.form-input {
+  width: 80%;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+  display: block;
+  color: var(--color-3);
+  background-color: var(--color-2);
+  border: none;
+  border-bottom: 1px solid var(--color-3);
+  text-align: left;
+}
+
+.form-input::placeholder {
+  color: var(--color-3);
+}
+
+.form-submit {
+  margin: 1rem 3rem;
+  margin-bottom: 0;
+  padding: 0.5rem 2rem;
+  background-color: var(--color-2);
+  border: 1px solid var(--color-3);
+  border-radius: 15px;
+  transition: all 750ms;
+}
+
+.form-submit:hover {
+  background-color: var(--color-1);
+  border-color: var(--color-1);
+  transition: all 750ms;
+}

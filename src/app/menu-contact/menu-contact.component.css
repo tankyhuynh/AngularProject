@@ -1,0 +1,58 @@
+/* Contact */
+
+.tabs-contact__item {
+  width: 80%;
+  padding: 0.75rem 2.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--color-1);
+  background-color: var(--color-2);
+  border-radius: 15px;
+  transition: all 750ms;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px -1px var(--color-1);
+}
+
+.tabs-contact__item:hover,
+.tabs-contact__item.active {
+  background-color: var(--color-1);
+  transition: all 750ms;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  bottom: 2rem;
+  right: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-2);
+  border: 1px solid var(--color-1);
+  border-radius: 50%;
+  transition: all 750ms;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.notification:hover {
+  background-color: var(--color-1);
+  border: 1px solid var(--color-2);
+  transition: all 750ms;
+}
+
+.notification__icon {
+  font-size: 1.75rem;
+}
+
+.notification__count {
+  position: fixed;
+  padding: 0.3rem 0.4rem;
+  margin-top: 2.5rem;
+  margin-left: 2.75rem;
+  font-size: 0.75rem;
+  background-color: var(--color-1);
+  border: 1px solid var(--color-2);
+  border-radius: 50%;
+}

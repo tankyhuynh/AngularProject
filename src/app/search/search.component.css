@@ -1,0 +1,23 @@
+/* Tabs Search */
+.tabs-search {
+  margin: 1rem 0;
+}
+
+.tabs-search__input::placeholder {
+  font-size: 0.9rem;
+  color: var(--color-3);
+}
+
+.tabs-search__input {
+  width: 18rem;
+  padding: 0.25rem 1rem;
+  color: var(--color-3);
+  background-color: var(--color-1);
+  border: 1px solid var(--color-1);
+  border-radius: 15px;
+}
+
+.tabs-search__icon {
+  padding: 0.25rem 0;
+  margin-left: -2rem;
+}

@@ -1,33 +1,41 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-<form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+<!-- <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
   <mat-card>
-
     <mat-form-field>
-      <input matInput
-        type="email"
+      <input
+        matInput
+        type="text"
         name="email"
         ngModel
         #emailInput="ngModel"
-        required email
-        placeholder="Your email">
-      <mat-error *ngIf="emailInput.invalid">Please input your Email address</mat-error>
+        required
+        email
+        placeholder="Your email"
+      />
+      <mat-error *ngIf="emailInput.invalid"
+        >Please input your Email address</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field>
-      <input type="text"
+      <input
+        type="text"
         matInput
         name="fullName"
         ngModel
-        placeholder="Your full name"/>
+        placeholder="Your full name"
+      />
     </mat-form-field>
 
     <mat-form-field>
-      <input type="text"
+      <input
+        type="text"
         matInput
         name="address"
         ngModel
-        placeholder="Your address"/>
+        placeholder="Your address"
+      />
     </mat-form-field>
 
     <mat-form-field>
@@ -38,13 +46,75 @@
         ngModel
         #passwordInput="ngModel"
         required
-        placeholder="Your password"  />
-    <mat-error *ngIf="passwordInput.invalid">Content must be greater than 3 digits</mat-error>
+        placeholder="Your password"
+      />
+      <mat-error *ngIf="passwordInput.invalid"
+        >Content must be greater than 3 digits</mat-error
+      >
     </mat-form-field>
-    <button
-      mat-raised-button
-      color="accent"
-      type="submit" > Signup </button>
+    <button mat-raised-button color="accent" type="submit">Signup</button>
   </mat-card>
-</form>
+</form> -->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-8 form-log-res">
+      <form
+        (submit)="onSignup(signupForm)"
+        #signupForm="ngForm"
+        *ngIf="!isLoading"
+      >
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            type="text"
+            matInput
+            name="fullName"
+            ngModel
+            placeholder="Họ và tên"
+          />
+        </div>
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            matInput
+            type="text"
+            name="email"
+            ngModel
+            #emailInput="ngModel"
+            required
+            email
+            placeholder="Số điện thoại"
+          />
+        </div>
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            matInput
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            required
+            placeholder="Mật khẩu"
+          />
+        </div>
+        <div class="row justify-content-center">
+          <input
+            class="form-input"
+            matInput
+            type="password"
+            name="re-password"
+            ngModel
+            #passwordInput="ngModel"
+            required
+            placeholder="Xác nhận mật khẩu"
+          />
+        </div>
 
+        <div class="row justify-content-end">
+          <button type="submit" class="form-submit">Đăng ký</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
